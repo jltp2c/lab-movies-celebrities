@@ -2,6 +2,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+//on peut destructurer {Schema} = require("mongoose")
+
 const celebritySchema = new Schema({
   name: String,
   occupation: String,

@@ -1,18 +1,18 @@
 <h2>Add your new movie</h2>
 <form action="/movies/create" , method="POST">
-    <input name="title" id="title" type="text" placeholder="title">
-    <select name="genre" id="genre">
+    <input name="title"  type="text" placeholder="title">
+    <select name="genre" >
         <option value="horror">horror</option>
         <option value="thriller">thriller</option>
         <option value="action">action</option>
         <option value="fantasy">fantasy</option>
         <option value="romance">romance</option>
     </select>
-    <input name="plot" id="plot" type="text" placeholder="plot">
-   <select name="cast" id="celebritiesSelect" multiple>
+    <input name="plot"  type="text" placeholder="plot">
+   <select name="cast" multiple>
         {{#each allCelebrities}}
         <option value="{{_id}}">
-            {{this.name}}
+            {{name}}
         </option>
         {{/each}}
    </select>

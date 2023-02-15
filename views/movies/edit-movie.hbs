@@ -1,0 +1,21 @@
+<h2>Edit : {{oneMovieFound.title}}</h2>
+
+<form action="/movies/{{oneMovieFound._id}}">
+<input name="title" type="text" value="{{oneMovieFound.title}}">
+<select name="genre" id="genre">
+    <option value="horror">horror</option>
+    <option value="thriller">thriller</option>
+    <option value="action">action</option>
+    <option value="fantasy">fantasy</option>
+    <option value="romance">romance</option>
+</select>
+<input name="plot"  type="text" placeholder="plot" value="{{oneMovieFound.plot}}">
+<select name="cast" multiple>
+    {{#each allCelebritiesFound}}
+    <option value="{{this._id}}" selected="selected">
+        {{this.name}}
+    </option>
+    {{/each}}
+</select>
+<button>Edit the movie</button>
+</form>

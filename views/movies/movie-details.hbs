@@ -1,0 +1,16 @@
+<h2>****{{allMoviesFound.title}}****</h2>
+<p>Genre : {{allMoviesFound.genre}}</p>
+<p>Summary : {{allMoviesFound.plot}}</p>
+
+{{#each allMoviesFound.cast}}
+************
+<p>Actor's name : {{name}}</p>
+<p>Occupation : {{occupation}}</p>
+<p>Quote : {{catchPhrase}}</p>
+
+{{/each}}
+
+<form action="/movies/{{allMoviesFound._id}}/delete", method="post">
+<button>Delete</button>
+</form>
+<a href="/movies/{{allMoviesFound._id}}/edit">Edit the movie</a>
