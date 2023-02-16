@@ -80,12 +80,12 @@ router.get("/:id/edit", async (req, res, next) => {
     next(error);
   }
 });
-
+// i have some problems about the edit because it doesn't update actually
 router.post("/:id/edit", async (req, res, next) => {
   try {
     const { title, genre, plot, cast } = req.body;
     await Movie.findByIdAndUpdate(req.params.id, { title, genre, plot, cast });
-    res.redirect("/movies");
+    res.redirect(`/movies/${req.params.id}`);
   } catch (error) {
     next(error);
   }
