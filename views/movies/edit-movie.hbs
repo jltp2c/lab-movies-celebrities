@@ -12,10 +12,12 @@
 <input name="plot"  type="text" placeholder="plot" value="{{oneMovieFound.plot}}">
 <select name="cast" multiple>
     {{#each allCelebritiesFound}}
-    <option value="{{this._id}}" selected="selected">
-        {{this.name}}
-    </option>
+    {{#if isSelected}}
+    <option selected value="{{_id}}">{{name}}</option>
+    {{else}}
+    <option value="{{_id}}">{{name}}</option>
+    {{/if}}
     {{/each}}
-</select>
+    </select>
 <button>Edit the movie</button>
 </form>

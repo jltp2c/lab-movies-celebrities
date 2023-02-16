@@ -58,10 +58,9 @@ router.post("/:id/delete", async function (req, res, next) {
 });
 
 // Iteration #10: Editing Movies
-router.get("/:id/edit", async function (req, res, next) {
+router.get("/:id/edit", async (req, res, next) => {
   try {
-    const { id } = req.params;
-    const oneMovieFound = await Movie.findById(id);
+    const oneMovieFound = await Movie.findById(req.params.id);
     let allCelebritiesFound = await Celebrity.find();
 
     const mappedCelebrities = allCelebritiesFound.map((celeb) => celeb._doc);
@@ -85,9 +84,8 @@ router.get("/:id/edit", async function (req, res, next) {
 router.post("/:id/edit", async (req, res, next) => {
   try {
     const { title, genre, plot, cast } = req.body;
-
     await Movie.findByIdAndUpdate(req.params.id, { title, genre, plot, cast });
-    res.redirect("movies");
+    res.redirect("/movies");
   } catch (error) {
     next(error);
   }
